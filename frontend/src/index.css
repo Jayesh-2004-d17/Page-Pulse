@@ -1,0 +1,56 @@
+/*@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f1f5f9;
+  font-family: Arial, Helvetica, sans-serif;
+}
+  */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+body {
+  background: #0b1120;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Faint diagnostic grid backdrop */
+.console-grid {
+  background-image:
+    radial-gradient(circle, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Scrolling ECG waveform */
+@keyframes ecg-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-700px); }
+}
+
+.ecg-line {
+  animation-name: ecg-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes soft-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.status-dot {
+  animation: soft-blink 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ecg-line,
+  .status-dot {
+    animation: none !important;
+  }
+}
